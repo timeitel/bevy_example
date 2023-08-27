@@ -1,11 +1,11 @@
 mod modules;
 
 use bevy::prelude::*;
-use modules::{player::PlayerPlugin, scene::ScenePlugin};
+use modules::{player::PlayerPlugin, startup::StartupPlugin};
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
-        .add_plugins((PlayerPlugin, ScenePlugin))
+        .add_plugins(DefaultPlugins.set(ImagePlugin::default_nearest()))
+        .add_plugins((PlayerPlugin, StartupPlugin))
         .run();
 }
